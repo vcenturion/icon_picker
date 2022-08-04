@@ -5,7 +5,7 @@ import 'package:icon_picker/icon_picker.dart';
 
 void main() {
   testWidgets('Testing instantiate IconPicker', (WidgetTester tester) async {
-    var myWidget = MyWidget();
+    var myWidget = const MyWidget();
     await tester.pumpWidget(myWidget);
 
     expect(
@@ -52,7 +52,7 @@ void main() {
 }
 
 class MyWidget extends StatefulWidget {
-  MyWidget({Key? key}) : super(key: key);
+  const MyWidget({Key? key}) : super(key: key);
 
   @override
   _MyWidgetState createState() => _MyWidgetState();
@@ -69,7 +69,7 @@ class _MyWidgetState extends State<MyWidget> {
           children: [
             IconPicker(
               initialValue: 'favorite',
-              icon: Icon(Icons.apps),
+              icon: const Icon(Icons.apps),
               labelText: "Icon",
               onChanged: (val) => setState(() => _value = val),
             ),

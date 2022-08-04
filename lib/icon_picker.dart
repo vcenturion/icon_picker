@@ -210,10 +210,10 @@ class IconPicker extends FormField<String> {
                   icon: state._icon ?? icon,
                   suffixIcon: Container(
                     width: 10,
-                    margin: EdgeInsets.all(0),
+                    margin: const EdgeInsets.all(0),
                     child: TextButton(
                       onPressed: () {},
-                      child: Icon(Icons.arrow_drop_down),
+                      child: const Icon(Icons.arrow_drop_down),
                     ),
                   ),
                 ));
@@ -483,7 +483,7 @@ class IconPickerDialog extends StatefulWidget {
   final String? searchHint;
   final Map<String, IconData>? iconCollection;
 
-  IconPickerDialog(
+  const IconPickerDialog(
       {Key? key,
       this.title,
       this.cancelBtn,
@@ -497,8 +497,8 @@ class IconPickerDialog extends StatefulWidget {
 }
 
 class _IconPickerDialogState extends State<IconPickerDialog> {
-  TextEditingController _oCtrlSearchQuery = TextEditingController();
-  Map<String, IconData> _mIconsShow = <String, IconData>{};
+  final TextEditingController _oCtrlSearchQuery = TextEditingController();
+  final Map<String, IconData> _mIconsShow = <String, IconData>{};
   int _iQtIcons = -1;
 
   @override
@@ -541,7 +541,7 @@ class _IconPickerDialogState extends State<IconPickerDialog> {
         TextField(
           controller: _oCtrlSearchQuery,
           decoration: InputDecoration(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             hintText: widget.searchHint ?? 'Search icon',
           ),
         ),
@@ -559,7 +559,7 @@ class _IconPickerDialogState extends State<IconPickerDialog> {
 
   Widget _content() {
     if (_iQtIcons == -1) {
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     } else if (_iQtIcons == 0) {
       return _showEmpty();
     }
@@ -597,7 +597,7 @@ class _IconPickerDialogState extends State<IconPickerDialog> {
 
   Widget _showEmpty() {
     return Stack(
-      children: <Widget>[
+      children: const <Widget>[
         Align(
           alignment: Alignment(0, 0),
           child: Icon(

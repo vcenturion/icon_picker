@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:icon_picker/icon_picker.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter IconPicker Demo',
       home: MyHomePage(),
     );
@@ -14,14 +16,14 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
   TextEditingController? _controller;
   //String _initialValue = '';
   String _valueChanged = '';
@@ -53,10 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter IconPicker Demo'),
+        title: const Text('Flutter IconPicker Demo'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
         child: Form(
           key: _oFormKey,
           child: Column(
@@ -64,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IconPicker(
                 controller: _controller,
                 //initialValue: _initialValue,
-                icon: Icon(Icons.apps),
+                icon: const Icon(Icons.apps),
                 labelText: "Icon",
                 enableSearch: true,
                 onChanged: (val) => setState(() => _valueChanged = val),
@@ -74,14 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 onSaved: (val) => setState(() => _valueSaved = val ?? ''),
               ),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 'IconPicker data value onChanged:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               SelectableText(_valueChanged),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   final loForm = _oFormKey.currentState;
@@ -90,23 +92,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     loForm?.save();
                   }
                 },
-                child: Text('Submit'),
+                child: const Text('Submit'),
               ),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 'IconPicker data value validator:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               SelectableText(_valueToValidate),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 'IconPicker data value onSaved:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               SelectableText(_valueSaved),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   final loForm = _oFormKey.currentState;
@@ -118,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     _valueSaved = '';
                   });
                 },
-                child: Text('Reset'),
+                child: const Text('Reset'),
               ),
             ],
           ),
